@@ -19,7 +19,7 @@ Sebuah boilerplate project untuk aplikasi **RESTful API** berbasis **Golang**, m
 ## 🗂️ Struktur Direktori
 
 ```
-go-app/
+go-auth/
 ├── cmd/
 │   └── main.go                    # Entry point utama: inisialisasi Fiber, DB, config, middleware, dan route
 │
@@ -90,8 +90,8 @@ go-app/
 1. Clone repository:
 
 ```bash
-git clone https://github.com/username/go-app.git
-cd go-app
+git clone https://github.com/ZAIDALMAGHFUR/go-auth.git
+cd go-auth
 ```
 
 2. Copy file `.env` contoh:
