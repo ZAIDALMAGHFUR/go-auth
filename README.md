@@ -37,20 +37,19 @@ go-auth/
 ├── internal/                      # Folder utama untuk modul-modul aplikasi (DDD-style)
 │   └── auth/                      # Modul auth (login, register, dsb)
 │       ├── delivery/              # Lapisan komunikasi keluar (HTTP, gRPC, CLI, dsb)
-│       │   ├── grpc/              # Handler untuk HTTP (pakai Fiber)
+│       │   ├── grpc/              # (Opsional) Handler untuk gRPC jika diperlukan
 │       │   │   ├── grpc_handler.go
-│       │   ├── http/              # Handler untuk HTTP (pakai Fiber)
-│       │   │   ├── controller/    # Handler controller HTTP endpoint
-│       │   │   ├── request/       # DTO/request validator (mirip Laravel FormRequest)
-│       │   │   └── response/      # Optional: Format response spesifik (bisa pakai resource juga)
-│       │   └── grpc/              # (Opsional) Handler untuk gRPC jika diperlukan
+│       │   └── http/              # Handler untuk HTTP (pakai Fiber)
+│       │       ├── controller/    # Handler controller HTTP endpoint
+│       │       ├── request/       # DTO/request validator (mirip Laravel FormRequest)
+│       │       └── response/      # Optional: Format response spesifik (bisa pakai resource juga)
 │       │
 │       ├── domain/                # Berisi interface dan struct utama domain (User, dsb)
 │       │   └── user.go
 │       │
 │       ├── repository/            # Implementasi interface data access
-│       │   └── mysql/             # Menggunakan MySQL dan GORM
-│       │       └── user_repository.go
+│       │   ├── mysql/             # Menggunakan MySQL dan GORM
+│       │   |   └── user_repository.go
 │       │   └── pgsql/             # Menggunakan Pgsql dan GORM
 │       │       └── user_repository.go
 │       │

@@ -3,6 +3,7 @@ module github.com/username/go-app
 go 1.24.3
 
 require (
+	github.com/bxcodec/faker/v3 v3.8.1
 	github.com/go-playground/validator/v10 v10.26.0
 	github.com/gofiber/fiber/v2 v2.52.8
 	github.com/golang-jwt/jwt/v5 v5.2.2
