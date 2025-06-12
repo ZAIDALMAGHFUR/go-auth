@@ -4,7 +4,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 
 	"github.com/username/go-app/internal/auth/delivery/http/controller"
-	authRepo "github.com/username/go-app/internal/auth/repository/mysql"
+	authRepo "github.com/username/go-app/internal/auth/repository/pgsql"
 	authRoutes "github.com/username/go-app/internal/auth/routes"
 	authService "github.com/username/go-app/internal/auth/service"
 )
