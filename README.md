@@ -35,6 +35,11 @@ go-auth/
 │       └── user_factory.go        # Factory data palsu untuk testing
 │
 ├── internal/                      # Folder utama untuk modul-modul aplikasi (DDD-style)
+│   ├── middleware/                # Middleware global & modular (auth, logger, recover)
+│   │   ├── auth.go
+│   │   ├── logger.go
+│   │   └── recovery.go
+│   │
 │   └── auth/                      # Modul auth (login, register, dsb)
 │       ├── delivery/              # Lapisan komunikasi keluar (HTTP, gRPC, CLI, dsb)
 │       │   ├── grpc/              # (Opsional) Handler untuk gRPC jika diperlukan
