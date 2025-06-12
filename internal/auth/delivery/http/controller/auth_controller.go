@@ -1,10 +1,11 @@
 package controller
 
 import (
+	"github.com/gofiber/fiber/v2"
+	"github.com/username/go-app/internal/auth/delivery/http/request"
+	"github.com/username/go-app/internal/auth/delivery/http/response"
 	"github.com/username/go-app/internal/auth/service"
 	"github.com/username/go-app/pkg"
-
-	"github.com/gofiber/fiber/v2"
 )
 
 type AuthController struct {
@@ -16,13 +17,7 @@ func NewAuthController(authService service.AuthService) *AuthController {
 }
 
 func (c *AuthController) Register(ctx *fiber.Ctx) error {
-	type request struct {
-		Name     string `json:"name"`
-		Email    string `json:"email"`
-		Password string `json:"password"`
-	}
-
-	var req request
+	var req request.RegisterRequest
 	if err := ctx.BodyParser(&req); err != nil {
 		return pkg.Error(ctx, fiber.StatusBadRequest, "Cannot parse JSON", nil)
 	}
@@ -32,16 +27,11 @@ func (c *AuthController) Register(ctx *fiber.Ctx) error {
 		return pkg.Error(ctx, fiber.StatusInternalServerError, err.Error(), nil)
 	}
 
-	return pkg.Success(ctx, fiber.StatusOK, "Registration success", user)
+	return pkg.Success(ctx, fiber.StatusOK, "Registration success", response.FromDomain(user))
 }
 
 func (c *AuthController) Login(ctx *fiber.Ctx) error {
-	type request struct {
-		Email    string `json:"email"`
-		Password string `json:"password"`
-	}
-
-	var req request
+	var req request.LoginRequest
 	if err := ctx.BodyParser(&req); err != nil {
 		return pkg.Error(ctx, fiber.StatusBadRequest, "Cannot parse JSON", nil)
 	}

@@ -2,7 +2,7 @@ package service
 
 import (
 	"github.com/username/go-app/internal/auth/domain"
-	"github.com/username/go-app/internal/auth/repository/mysql"
+	"github.com/username/go-app/internal/auth/repository/pgsql"
 	"github.com/username/go-app/pkg"
 )
 
@@ -12,10 +12,10 @@ type AuthService interface {
 }
 
 type authService struct {
-	userRepo mysql.UserRepository
+	userRepo pgsql.UserRepository
 }
 
-func NewAuthService(userRepo mysql.UserRepository) AuthService {
+func NewAuthService(userRepo pgsql.UserRepository) AuthService {
 	return &authService{userRepo}
 }
 
