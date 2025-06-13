@@ -70,6 +70,7 @@ go-auth/
 ├── pkg/                           # Utilities (JWT, Hash, Response, Time, dsb)
 │   ├── jwt.go
 │   ├── hash.go
+│   ├── validator.go
 │   └── response.go
 │
 ├── shared/                        # Struct & helper yang bisa dipakai lintas modul
