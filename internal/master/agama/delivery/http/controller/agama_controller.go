@@ -8,7 +8,6 @@ import (
 	"github.com/username/go-app/internal/master/agama/delivery/http/response"
 	"github.com/username/go-app/internal/master/agama/service"
 	"github.com/username/go-app/pkg"
-	"github.com/username/go-app/pkg/validation"
 )
 
 type AgamaController struct {
@@ -24,7 +23,7 @@ func (c *AgamaController) Create(ctx *fiber.Ctx) error {
 	if err := ctx.BodyParser(&req); err != nil {
 		return pkg.Error(ctx, fiber.StatusBadRequest, "Cannot parse JSON", nil)
 	}
-	if ok, errs := validation.ValidateStruct(req); !ok {
+	if ok, errs := pkg.ValidateStruct(req); !ok {
 		return pkg.Error(ctx, fiber.StatusBadRequest, "Validation failed", errs)
 	}
 	agama, err := c.agamaService.Create(req.Name)
@@ -55,7 +54,7 @@ func (c *AgamaController) Update(ctx *fiber.Ctx) error {
 	if err := ctx.BodyParser(&req); err != nil {
 		return pkg.Error(ctx, fiber.StatusBadRequest, "Cannot parse JSON", nil)
 	}
-	if ok, errs := validation.ValidateStruct(req); !ok {
+	if ok, errs := pkg.ValidateStruct(req); !ok {
 		return pkg.Error(ctx, fiber.StatusBadRequest, "Validation failed", errs)
 	}
 	agama, err := c.agamaService.Update(uint(id), req.Name)

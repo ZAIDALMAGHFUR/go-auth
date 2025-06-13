@@ -6,7 +6,6 @@ import (
 	"github.com/username/go-app/internal/auth/delivery/http/response"
 	"github.com/username/go-app/internal/auth/service"
 	"github.com/username/go-app/pkg"
-	"github.com/username/go-app/pkg/validation"
 )
 
 type AuthController struct {
@@ -22,7 +21,7 @@ func (c *AuthController) Register(ctx *fiber.Ctx) error {
 	if err := ctx.BodyParser(&req); err != nil {
 		return pkg.Error(ctx, fiber.StatusBadRequest, "Cannot parse JSON", nil)
 	}
-	if ok, errs := validation.ValidateStruct(req); !ok {
+	if ok, errs := pkg.ValidateStruct(req); !ok {
 		return pkg.Error(ctx, fiber.StatusBadRequest, "Validation failed", errs)
 	}
 	user, err := c.authService.Register(req.Name, req.Email, req.Password)
@@ -38,7 +37,7 @@ func (c *AuthController) Login(ctx *fiber.Ctx) error {
 	if err := ctx.BodyParser(&req); err != nil {
 		return pkg.Error(ctx, fiber.StatusBadRequest, "Cannot parse JSON", nil)
 	}
-	if ok, errs := validation.ValidateStruct(req); !ok {
+	if ok, errs := pkg.ValidateStruct(req); !ok {
 		return pkg.Error(ctx, fiber.StatusBadRequest, "Validation failed", errs)
 	}
 	token, err := c.authService.Login(req.Email, req.Password)
