@@ -132,7 +132,7 @@ go install github.com/pressly/goose/v3/cmd/goose@latest
 
 ---
 
-## 🧬 Migrasi Database
+## 🧬 Migrasi & Seeder Database
 
 ### 🔨 Buat File Migrasi Baru
 
@@ -143,7 +143,7 @@ make Migration name=create_roles_table
 ### ▶️ Jalankan Migrasi
 
 ```bash
-make Migrate
+make migrate
 ```
 
 ### 🔁 Rollback Migrasi
@@ -151,10 +151,6 @@ make Migrate
 ```bash
 make rollback
 ```
-
----
-
-## 🌱 Seeder Database
 
 ### 🔨 Buat Seeder Baru
 
@@ -173,6 +169,16 @@ make seed
 ```bash
 make rollback-seed
 ```
+
+### 🧩 Jalankan Migrasi + Seeder Sekaligus
+
+Untuk menjalankan **migrasi dan seeder dalam satu perintah**, gunakan:
+
+```bash
+make migrate--seed
+```
+
+> Perintah ini akan mengeksekusi migrasi database lalu langsung menjalankan seeder. Cocok digunakan saat setup awal atau refresh database development.
 
 ---
 
