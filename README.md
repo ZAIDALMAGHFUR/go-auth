@@ -71,6 +71,7 @@ go-auth/
 │   ├── jwt.go
 │   ├── hash.go
 │   ├── validator.go
+│   ├── pagination.go
 │   └── response.go
 │
 ├── shared/                        # Struct & helper yang bisa dipakai lintas modul
