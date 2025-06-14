@@ -4,7 +4,7 @@ import (
 	"math/rand"
 	"time"
 
-	"github.com/username/go-app/internal/auth/domain"
+	"github.com/zaidalmaghfur/go-app/internal/auth/domain"
 
 	"github.com/bxcodec/faker/v3"
 )

@@ -33,3 +33,15 @@ func Error(ctx *fiber.Ctx, statusCode int, message string, data interface{}) err
 		Response: data,
 	})
 }
+
+func PaginatedSuccess(ctx *fiber.Ctx, code int, message string, data interface{}, total, page, limit int) error {
+	response := BuildPagination(ctx, data, total, page, limit)
+
+	return ctx.Status(code).JSON(fiber.Map{
+		"metaData": fiber.Map{
+			"code":    code,
+			"message": message,
+		},
+		"response": response,
+	})
+}

@@ -1,6 +1,6 @@
 package response
 
-import "github.com/username/go-app/internal/master/agama/domain"
+import "github.com/zaidalmaghfur/go-app/internal/master/agama/domain"
 
 type AgamaResponse struct {
 	ID   uint   `json:"id"`

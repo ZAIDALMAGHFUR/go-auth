@@ -3,17 +3,17 @@ package route
 import (
 	"github.com/gofiber/fiber/v2"
 
-	authController "github.com/username/go-app/internal/auth/delivery/http/controller"
-	authRepo "github.com/username/go-app/internal/auth/repository/pgsql"
-	authRoutes "github.com/username/go-app/internal/auth/routes"
-	authService "github.com/username/go-app/internal/auth/service"
+	authController "github.com/zaidalmaghfur/go-app/internal/auth/delivery/http/controller"
+	authRepo "github.com/zaidalmaghfur/go-app/internal/auth/repository/pgsql"
+	authRoutes "github.com/zaidalmaghfur/go-app/internal/auth/routes"
+	authService "github.com/zaidalmaghfur/go-app/internal/auth/service"
 
-	agamaController "github.com/username/go-app/internal/master/agama/delivery/http/controller"
-	agamaRepo "github.com/username/go-app/internal/master/agama/repository/pgsql"
-	agamaRoutes "github.com/username/go-app/internal/master/agama/routes"
-	agamaService "github.com/username/go-app/internal/master/agama/service"
+	agamaController "github.com/zaidalmaghfur/go-app/internal/master/agama/delivery/http/controller"
+	agamaRepo "github.com/zaidalmaghfur/go-app/internal/master/agama/repository/pgsql"
+	agamaRoutes "github.com/zaidalmaghfur/go-app/internal/master/agama/routes"
+	agamaService "github.com/zaidalmaghfur/go-app/internal/master/agama/service"
 
-	"github.com/username/go-app/internal/middleware"
+	"github.com/zaidalmaghfur/go-app/internal/middleware"
 )
 
 func Init(app *fiber.App) {

@@ -4,10 +4,10 @@ import (
 	"strconv"
 
 	"github.com/gofiber/fiber/v2"
-	"github.com/username/go-app/internal/master/agama/delivery/http/request"
-	"github.com/username/go-app/internal/master/agama/delivery/http/response"
-	"github.com/username/go-app/internal/master/agama/service"
-	"github.com/username/go-app/pkg"
+	"github.com/zaidalmaghfur/go-app/internal/master/agama/delivery/http/request"
+	"github.com/zaidalmaghfur/go-app/internal/master/agama/delivery/http/response"
+	"github.com/zaidalmaghfur/go-app/internal/master/agama/service"
+	"github.com/zaidalmaghfur/go-app/pkg"
 )
 
 type AgamaController struct {
@@ -76,10 +76,27 @@ func (c *AgamaController) Delete(ctx *fiber.Ctx) error {
 }
 
 func (c *AgamaController) GetAll(ctx *fiber.Ctx) error {
-	agamaList, err := c.agamaService.GetAll()
+	pageStr := ctx.Query("page", "1")
+	limitStr := ctx.Query("limit", "10")
+
+	page, err := strconv.Atoi(pageStr)
+	if err != nil || page < 1 {
+		page = 1
+	}
+	limit, err := strconv.Atoi(limitStr)
+	if err != nil || limit < 1 {
+		limit = 10
+	}
+	offset := (page - 1) * limit
+
+	agamas, total, err := c.agamaService.GetAllPaginated(offset, limit)
 	if err != nil {
 		return pkg.Error(ctx, fiber.StatusInternalServerError, err.Error(), nil)
 	}
-	responses := response.FromDomainList(agamaList)
-	return pkg.Success(ctx, fiber.StatusOK, "Retrieved successfully", responses)
+
+	data := response.FromDomainList(agamas)
+
+	paginated := pkg.Build(ctx, data, total, page, limit)
+
+	return pkg.Success(ctx, fiber.StatusOK, "Module retrieved successfully", paginated)
 }

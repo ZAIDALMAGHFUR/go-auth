@@ -4,7 +4,7 @@ import (
 	"strings"
 
 	"github.com/gofiber/fiber/v2"
-	"github.com/username/go-app/pkg"
+	"github.com/zaidalmaghfur/go-app/pkg"
 )
 
 func AuthMiddleware() fiber.Handler {

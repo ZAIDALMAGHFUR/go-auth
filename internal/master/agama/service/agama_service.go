@@ -1,8 +1,8 @@
 package service
 
 import (
-	"github.com/username/go-app/internal/master/agama/domain"
-	"github.com/username/go-app/internal/master/agama/repository/pgsql"
+	"github.com/zaidalmaghfur/go-app/internal/master/agama/domain"
+	"github.com/zaidalmaghfur/go-app/internal/master/agama/repository/pgsql"
 )
 
 type AgamaService interface {
@@ -11,6 +11,7 @@ type AgamaService interface {
 	Update(id uint, name string) (*domain.Agama, error)
 	Delete(id uint) error
 	GetAll() ([]domain.Agama, error)
+	GetAllPaginated(offset, limit int) ([]domain.Agama, int, error)
 }
 
 type agamaService struct {
@@ -47,4 +48,8 @@ func (s *agamaService) Delete(id uint) error {
 
 func (s *agamaService) GetAll() ([]domain.Agama, error) {
 	return s.agamaRepo.FindAll()
+}
+
+func (s *agamaService) GetAllPaginated(offset, limit int) ([]domain.Agama, int, error) {
+	return s.agamaRepo.FindAllPaginated(offset, limit)
 }

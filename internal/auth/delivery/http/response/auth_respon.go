@@ -1,6 +1,6 @@
 package response
 
-import "github.com/username/go-app/internal/auth/domain"
+import "github.com/zaidalmaghfur/go-app/internal/auth/domain"
 
 type UserResponse struct {
 	ID    uint   `json:"id"`

@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/username/go-app/config"
+	"github.com/zaidalmaghfur/go-app/config"
 
 	"github.com/pressly/goose/v3"
 

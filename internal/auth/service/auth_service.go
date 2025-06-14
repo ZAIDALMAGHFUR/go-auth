@@ -1,9 +1,9 @@
 package service
 
 import (
-	"github.com/username/go-app/internal/auth/domain"
-	"github.com/username/go-app/internal/auth/repository/pgsql"
-	"github.com/username/go-app/pkg"
+	"github.com/zaidalmaghfur/go-app/internal/auth/domain"
+	"github.com/zaidalmaghfur/go-app/internal/auth/repository/pgsql"
+	"github.com/zaidalmaghfur/go-app/pkg"
 )
 
 type AuthService interface {

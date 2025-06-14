@@ -1,8 +1,8 @@
 package pgsql
 
 import (
-	"github.com/username/go-app/config"
-	"github.com/username/go-app/internal/auth/domain"
+	"github.com/zaidalmaghfur/go-app/config"
+	"github.com/zaidalmaghfur/go-app/internal/auth/domain"
 )
 
 type UserRepository interface {

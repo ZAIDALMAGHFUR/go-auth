@@ -1,8 +1,8 @@
 package pgsql
 
 import (
-	"github.com/username/go-app/config"
-	"github.com/username/go-app/internal/master/agama/domain"
+	"github.com/zaidalmaghfur/go-app/config"
+	"github.com/zaidalmaghfur/go-app/internal/master/agama/domain"
 )
 
 type AgamaRepository interface {

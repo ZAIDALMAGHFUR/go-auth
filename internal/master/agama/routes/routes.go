@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"github.com/username/go-app/internal/master/agama/delivery/http/controller"
+	"github.com/zaidalmaghfur/go-app/internal/master/agama/delivery/http/controller"
 
 	"github.com/gofiber/fiber/v2"
 )

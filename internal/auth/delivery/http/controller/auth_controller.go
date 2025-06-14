@@ -2,10 +2,10 @@ package controller
 
 import (
 	"github.com/gofiber/fiber/v2"
-	"github.com/username/go-app/internal/auth/delivery/http/request"
-	"github.com/username/go-app/internal/auth/delivery/http/response"
-	"github.com/username/go-app/internal/auth/service"
-	"github.com/username/go-app/pkg"
+	"github.com/zaidalmaghfur/go-app/internal/auth/delivery/http/request"
+	"github.com/zaidalmaghfur/go-app/internal/auth/delivery/http/response"
+	"github.com/zaidalmaghfur/go-app/internal/auth/service"
+	"github.com/zaidalmaghfur/go-app/pkg"
 )
 
 type AuthController struct {

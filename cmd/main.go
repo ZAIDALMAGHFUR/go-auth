@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/username/go-app/config"
-	route "github.com/username/go-app/routes"
+	"github.com/zaidalmaghfur/go-app/config"
+	route "github.com/zaidalmaghfur/go-app/routes"
 
 	"github.com/gofiber/fiber/v2"
 )
