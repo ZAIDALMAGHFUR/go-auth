@@ -25,4 +25,5 @@ func main() {
 	if err := goose.Up(db, "database/migration"); err != nil {
 		log.Fatalf("goose up failed: %v\n", err)
 	}
+	log.Println("✅ Migration success!")
 }

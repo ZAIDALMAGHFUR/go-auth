@@ -20,9 +20,10 @@ func main() {
 		log.Fatalf("goose: failed to open DB: %v\n", err)
 	}
 
+	goose.SetTableName("goose_seed_version")
+
 	if err := goose.Up(db, "database/seed"); err != nil {
 		log.Fatalf("goose seed up failed: %v\n", err)
 	}
-
-	log.Println("Seed success!")
+	log.Println("✅ Seeding success!")
 }
